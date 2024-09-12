@@ -1,3 +1,77 @@
+# Instalación zsh
+Para instalar **zsh**:
+```bash
+sudo apt update
+sudo apt install zsh
+zsh --version
+```
+Configuramos y establecemos por defecto zsh lanza el comando:
+```bash
+zsh (opción 2)
+chsh -s $(which zsh)
+```
+Hay que cambiar el theme e instalar el siguiente paquete:
+```bash
+ZSH_THEME="agnoster"
+sudo apt-get install fonts-powerline
+```
+![[Pasted image 20240912100351.png]]
+Instalamos **oh-my-zsh**:
+```bash
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+# Powerlevel10k y dracula theme
+Instalamos **powerlevel10k**, lo ponemos como theme por defecto y lo configuramos:
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+p10k configure
+```
+Instalamos el theme de **dracula**:
+```bash
+sudo apt-get install dconf-cli
+```
+Clonamos el repositorio y accedemos al directorio:
+```bash
+git clone https://github.com/dracula/gnome-terminal
+cd gnome-terminal
+```
+Creamos un perfil en las preferencias de la terminal llamado **dracula**:
+![[Pasted image 20240912111618.png]]
+Lanzamos el script de instalación:
+```bash
+./install.sh
+```
+Después marcamos por defecto el perfil drácula.
+
+# Plugins
+Instalamos la siguiente [fuente](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip)
+Instalamos **ruby**:
+```bash
+sudo apt-get install ruby
+sudo apt-get install ruby-dev
+gem install colorls
+```
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/common-aliases
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/colored-man-pages
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-colorls
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/git
+```
+
+# .zshrc
+Este es mi archivo de configuración que estoy utilizando actualmente:
+```bash
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -118,3 +192,4 @@ source $ZSH/oh-my-zsh.sh
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 source $(dirname $(gem which colorls))/tab_complete.sh
+```
