@@ -15,7 +15,7 @@ Hay que cambiar el theme e instalar el siguiente paquete:
 ZSH_THEME="agnoster"
 sudo apt-get install fonts-powerline
 ```
-![[Pasted image 20240912100351.png]]
+![terminal1](imgs/terminal1.png)
 Instalamos **oh-my-zsh**:
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -40,7 +40,7 @@ git clone https://github.com/dracula/gnome-terminal
 cd gnome-terminal
 ```
 Creamos un perfil en las preferencias de la terminal llamado **dracula**:
-![[Pasted image 20240912111618.png]]
+![profile](imgs/profile.png)
 Lanzamos el script de instalación:
 ```bash
 ./install.sh
@@ -68,7 +68,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/git
 ```
-
+Así es como se debería ver la terminal:
+![terminal2](imgs/terminal2.png)
 # .zshrc
 Este es mi archivo de configuración que estoy utilizando actualmente:
 ```bash
